@@ -5,6 +5,7 @@ import { urlFor } from '@/lib/sanity'
 
 type Settings = {
   bio?: string | null
+  heroPortrait?: unknown
   portraitImage?: unknown
   githubUrl?: string | null
   linkedinUrl?: string | null
@@ -21,10 +22,12 @@ const socialLinks = (settings: Settings) => [
 
 export default function Hero({ settings }: { settings: Settings }) {
   const links = socialLinks(settings)
+  const portraitAsset = settings?.heroPortrait || settings?.portraitImage || null
+  const portraitSrc = portraitAsset ? urlFor(portraitAsset).url() : null
 
   return (
-    <section className="eng-bg relative overflow-hidden pt-[96px] md:min-h-screen" id="hero">
-      <div className="section-shell relative flex flex-col justify-center gap-10 py-12 md:min-h-screen md:flex-row md:items-center md:gap-12 md:py-16">
+    <section className="eng-bg relative min-h-screen max-h-screen overflow-hidden pt-[80px]" id="hero">
+      <div className="section-shell relative flex h-[calc(100vh-80px)] max-h-[calc(100vh-80px)] flex-col justify-center gap-10 py-8 md:flex-row md:items-center md:gap-12 md:py-10">
         <div className="sfx-burst right-12 top-20 hidden scale-150 rotate-12 md:block">
           <svg fill="#ff1493" height="180" viewBox="0 0 200 200" width="180">
             <path d="M100 0L115 70L185 85L115 100L100 170L85 100L15 85L85 70Z" />
@@ -82,16 +85,44 @@ export default function Hero({ settings }: { settings: Settings }) {
           ) : null}
         </div>
 
-        <div className="relative z-10 flex-1">
-          <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden comic-card halftone-dot-overlay border-[4px] text-primary-container sm:max-w-md md:max-w-lg">
-            {settings?.portraitImage ? (
+        <div className="relative z-10 flex flex-1 items-end">
+          <div
+            className="relative mx-auto h-[calc(100vh-80px)] max-h-[calc(100vh-80px)] w-full max-w-sm overflow-hidden bg-[#0a0a14] sm:max-w-md md:max-w-lg"
+            style={{
+              border: '2px solid rgba(255,20,147,0.4)',
+              borderRadius: '0px',
+              boxShadow: '-30px 0 80px rgba(255,20,147,0.18), 30px 0 80px rgba(77,45,255,0.18)',
+              WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 10%, black 100%)',
+              maskImage: 'linear-gradient(to bottom, transparent 0%, black 10%, black 100%)',
+            }}
+          >
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute z-10"
+              style={{
+                inset: '-6px',
+                border: '1px solid rgba(77,45,255,0.3)',
+              }}
+            />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute bottom-[6px] left-[6px] z-10"
+              style={{
+                width: '40%',
+                height: '40%',
+                borderLeft: '2px solid rgba(255,20,147,0.6)',
+                borderBottom: '2px solid rgba(255,20,147,0.6)',
+              }}
+            />
+            {portraitSrc ? (
               <Image
                 alt={`${SITE.name} portrait`}
-                className="duotone-pink h-full w-full object-cover"
+                className="h-full w-full object-contain"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                src={urlFor(settings.portraitImage).url()}
+                src={portraitSrc}
+                style={{ objectPosition: 'center bottom' }}
               />
             ) : (
               <div className="h-full w-full spider-skeleton border-0">

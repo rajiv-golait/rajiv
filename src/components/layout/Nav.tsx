@@ -27,14 +27,14 @@ export default function Nav() {
           <Link className={navClass(onHome)} href="/#experience">
             Experience
           </Link>
+          <Link className={navClass(onHome)} href="/#certifications">
+            Certifications
+          </Link>
           <Link className={navClass(onGallery)} href="/gallery">
             Gallery
           </Link>
           <Link className={navClass(onHome)} href="/#contact">
             Contact
-          </Link>
-          <Link className="bg-primary-container px-5 py-2 text-[10px] font-black uppercase tracking-[0.24em] text-white hard-shadow-blue transition-transform hover:translate-y-px" href={onGallery ? '/#contact' : '/#contact'}>
-            Connect
           </Link>
         </nav>
         <button aria-label="Open navigation" className="md:hidden text-primary-container">

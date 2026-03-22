@@ -6,7 +6,7 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({ name: 'name', title: 'Full Name', type: 'string' }),
-    defineField({ name: 'portraitImage', title: 'Portrait Image', type: 'image', options: { hotspot: true } }),
+    defineField({ name: 'heroPortrait', title: 'Hero Portrait', type: 'image', options: { hotspot: true } }),
     defineField({ name: 'cgpa', title: 'CGPA', type: 'number' }),
     defineField({ name: 'resumeUrl', title: 'Resume URL', type: 'url' }),
     defineField({ name: 'resumeFile', title: 'Resume File', type: 'file' }),
