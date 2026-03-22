@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@900&amp;family=Bangers&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono&amp;family=Playfair+Display:ital,wght@1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary": "#e9c400",
+              "surface-container-high": "#292936",
+              "primary-fixed-dim": "#ffb0ca",
+              "on-tertiary": "#3a3000",
+              "inverse-surface": "#e3e0f3",
+              "on-primary-container": "#58002f",
+              "surface-container-highest": "#343341",
+              "surface": "#12121f",
+              "outline-variant": "#5b3f48",
+              "on-secondary": "#2500a2",
+              "on-primary": "#640036",
+              "secondary": "#c5c0ff",
+              "primary": "#ffb0ca",
+              "on-tertiary-fixed": "#221b00",
+              "surface-container": "#1f1e2b",
+              "outline": "#aa8892",
+              "on-secondary-fixed": "#140067",
+              "on-error-container": "#ffdad6",
+              "on-background": "#e3e0f3",
+              "on-surface": "#e3e0f3",
+              "tertiary-fixed-dim": "#e9c400",
+              "secondary-fixed-dim": "#c5c0ff",
+              "surface-container-lowest": "#0d0d19",
+              "on-primary-fixed": "#3e001f",
+              "error-container": "#93000a",
+              "tertiary-container": "#c9a900",
+              "on-error": "#690005",
+              "secondary-container": "#3d06f2",
+              "inverse-on-surface": "#2f2f3d",
+              "primary-fixed": "#ffd9e3",
+              "surface-variant": "#343341",
+              "inverse-primary": "#b90068",
+              "secondary-fixed": "#e3dfff",
+              "error": "#ffb4ab",
+              "on-secondary-fixed-variant": "#3700e1",
+              "surface-bright": "#383846",
+              "surface-tint": "#ffb0ca",
+              "on-primary-fixed-variant": "#8d004e",
+              "tertiary-fixed": "#ffe16d",
+              "background": "#12121f",
+              "on-tertiary-fixed-variant": "#544600",
+              "surface-dim": "#12121f",
+              "on-secondary-container": "#bdb7ff",
+              "on-surface-variant": "#e3bdc7",
+              "on-tertiary-container": "#4c3e00",
+              "primary-container": "#ff479c",
+              "surface-container-low": "#1a1a27"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Plus Jakarta Sans"],
+              "comic": ["Bangers"],
+              "serif-italic": ["Playfair Display"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .halftone-pattern {
+            background-image: radial-gradient(circle, currentColor 2px, transparent 2px);
+            background-size: 24px 24px;
+        }
+        .text-glow-pink {
+            text-shadow: 0 0 10px rgba(255, 20, 147, 0.8), 0 0 20px rgba(255, 20, 147, 0.4);
+        }
+        .burst-shape {
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+    </style>
+</head>
+<body class="bg-[#050510] text-on-surface font-body overflow-hidden">
+<!-- Cinematic Canvas -->
+<main class="relative min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-r from-[#050510] to-[#0a0808]">
+<!-- Halftone Overlay Layers -->
+<div class="absolute inset-0 flex pointer-events-none opacity-20">
+<div class="flex-1 halftone-pattern text-secondary-container"></div>
+<div class="flex-1 halftone-pattern text-secondary"></div>
+<div class="flex-1 halftone-pattern text-primary"></div>
+</div>
+<!-- Content Container -->
+<div class="relative z-10 flex flex-col items-center gap-12 px-6">
+<!-- Phase 1: The Hook -->
+<div class="transform -rotate-2">
+<div class="bg-tertiary px-10 py-4 shadow-[8px_8px_0px_0px_#3d06f215]">
+<h2 class="font-comic text-4xl md:text-6xl text-on-tertiary tracking-wider">
+                        BUT WHEN THE SUN SETS...
+                    </h2>
+</div>
+</div>
+<!-- Phase 2: The Transition -->
+<div class="flex flex-col items-center text-center gap-2">
+<p class="font-serif-italic text-3xl md:text-[42px] leading-tight text-[#f0e8ff]">
+                    Hand him a camera,
+                </p>
+<p class="font-serif-italic text-3xl md:text-[42px] leading-tight text-[#f0e8ff]">
+                    and he becomes
+                </p>
+</div>
+<!-- Phase 3: The Reveal -->
+<div class="relative group cursor-default">
+<h1 class="font-serif-italic text-5xl md:text-[48px] text-[#ff1493] text-glow-pink tracking-tight">
+                    shot_by_f.a.l.c.o.n
+                </h1>
+<!-- SFX Burst -->
+<div class="absolute -right-16 -top-8 transform rotate-[5deg]">
+<div class="bg-[#ff1493] burst-shape p-8 flex items-center justify-center">
+<span class="font-comic text-lg text-white">*CLICK!*</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Ambient Technical Markers (Ghost Borders) -->
+<div class="absolute bottom-12 left-12 font-mono text-[10px] text-primary/30 uppercase tracking-[0.3em]">
+            System.Shift // Layer_07
+        </div>
+<div class="absolute top-12 right-12 font-mono text-[10px] text-secondary/30 uppercase tracking-[0.3em]">
+            Temporal_Status: Active
+        </div>
+</main>
+<!-- Footer Component (Integrated via Blueprint) -->
+<footer class="fixed bottom-0 left-0 w-full bg-[#12121f] flex flex-col md:flex-row justify-between items-center px-8 py-6 gap-4 border-t border-white/5 bg-dot-pattern-halftone">
+<div class="text-sm font-bold text-slate-500 font-mono uppercase tracking-widest">
+            © 2024 RAJIV // MULTIVERSAL ENGINEER
+        </div>
+<div class="flex gap-8">
+<a class="text-slate-500 hover:text-white transition-colors font-mono text-xs uppercase tracking-widest" href="#">Source</a>
+<a class="text-slate-500 hover:text-white transition-colors font-mono text-xs uppercase tracking-widest" href="#">Status</a>
+<a class="text-slate-500 hover:text-white transition-colors font-mono text-xs uppercase tracking-widest" href="#">Archive</a>
+</div>
+</footer>
+</body></html>

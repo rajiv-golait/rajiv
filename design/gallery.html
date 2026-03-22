@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..900&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;family=Bangers&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary": "#e9c400",
+              "surface-container-high": "#292936",
+              "primary-fixed-dim": "#ffb0ca",
+              "on-tertiary": "#3a3000",
+              "inverse-surface": "#e3e0f3",
+              "on-primary-container": "#58002f",
+              "surface-container-highest": "#343341",
+              "surface": "#12121f",
+              "outline-variant": "#5b3f48",
+              "on-secondary": "#2500a2",
+              "on-primary": "#640036",
+              "secondary": "#c5c0ff",
+              "primary": "#ffb0ca",
+              "on-tertiary-fixed": "#221b00",
+              "surface-container": "#1f1e2b",
+              "outline": "#aa8892",
+              "on-secondary-fixed": "#140067",
+              "on-error-container": "#ffdad6",
+              "on-background": "#e3e0f3",
+              "on-surface": "#e3e0f3",
+              "tertiary-fixed-dim": "#e9c400",
+              "secondary-fixed-dim": "#c5c0ff",
+              "surface-container-lowest": "#0d0d19",
+              "on-primary-fixed": "#3e001f",
+              "error-container": "#93000a",
+              "tertiary-container": "#c9a900",
+              "on-error": "#690005",
+              "secondary-container": "#3d06f2",
+              "inverse-on-surface": "#2f2f3d",
+              "primary-fixed": "#ffd9e3",
+              "surface-variant": "#343341",
+              "inverse-primary": "#b90068",
+              "secondary-fixed": "#e3dfff",
+              "error": "#ffb4ab",
+              "on-secondary-fixed-variant": "#3700e1",
+              "surface-bright": "#383846",
+              "surface-tint": "#ffb0ca",
+              "on-primary-fixed-variant": "#8d004e",
+              "tertiary-fixed": "#ffe16d",
+              "background": "#12121f",
+              "on-tertiary-fixed-variant": "#544600",
+              "surface-dim": "#12121f",
+              "on-secondary-container": "#bdb7ff",
+              "on-surface-variant": "#e3bdc7",
+              "on-tertiary-container": "#4c3e00",
+              "primary-container": "#ff479c",
+              "surface-container-low": "#1a1a27"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Plus Jakarta Sans"],
+              "mono": ["JetBrains Mono"],
+              "comic": ["Bangers"],
+              "display": ["Playfair Display"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .halftone-overlay {
+            background-image: radial-gradient(#ff8a00 0.5px, transparent 0.5px);
+            background-size: 8px 8px;
+            opacity: 0.03;
+        }
+        .film-grain {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 100;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.08;
+        }
+        .item-grain {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.04;
+            z-index: 10;
+        }
+        .masonry {
+            column-count: 1;
+            column-gap: 2rem;
+        }
+        @media (min-width: 768px) { .masonry { column-count: 2; } }
+        @media (min-width: 1024px) { .masonry { column-count: 3; } }
+        
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.7);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .masonry-item:nth-child(even) {
+            transform: translateY(20px);
+        }
+        .masonry-item:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 15px 35px -5px rgba(255, 176, 202, 0.2);
+        }
+        .masonry-item:nth-child(even):hover {
+            transform: translateY(15px) scale(1.01);
+        }
+
+        .text-3d-title {
+            text-shadow: 
+                1px 1px 0px #3d06f2,
+                2px 2px 0px #3d06f2,
+                3px 3px 0px #3d06f2,
+                4px 4px 0px #3d06f2,
+                0 0 20px rgba(233, 196, 0, 0.5);
+        }
+
+        .particles {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 5;
+        }
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.5; }
+            100% { transform: translateY(-10vh) translateX(50px); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-[#0a0808] text-on-surface font-body selection:bg-primary selection:text-on-primary-container overflow-x-hidden">
+<div class="film-grain"></div>
+<div class="fixed inset-0 halftone-overlay pointer-events-none"></div>
+<!-- Floating Particles -->
+<div class="particles">
+<div class="particle w-1 h-1" style="left: 10%; animation-delay: 0s; animation-duration: 15s;"></div>
+<div class="particle w-2 h-2" style="left: 25%; animation-delay: 5s; animation-duration: 25s;"></div>
+<div class="particle w-1 h-1" style="left: 40%; animation-delay: 2s; animation-duration: 20s;"></div>
+<div class="particle w-1.5 h-1.5" style="left: 65%; animation-delay: 8s; animation-duration: 18s;"></div>
+<div class="particle w-1 h-1" style="left: 85%; animation-delay: 1s; animation-duration: 22s;"></div>
+<div class="particle w-2 h-2" style="left: 95%; animation-delay: 12s; animation-duration: 30s;"></div>
+</div>
+<!-- TopAppBar -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-md flex justify-between items-center w-full px-8 py-6 max-w-full shadow-[4px_4px_0px_0px_rgba(61,6,242,0.15)]">
+<div class="text-2xl font-black tracking-tighter text-pink-500 dark:text-pink-500 uppercase font-headline">
+        RAJIV
+    </div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-slate-300 hover:text-pink-400 transition-colors hover:skew-x-2 font-medium" href="#">Projects</a>
+<a class="text-slate-300 hover:text-pink-400 transition-colors hover:skew-x-2 font-medium" href="#">Experience</a>
+<a class="text-pink-500 font-bold border-b-2 border-pink-500 pb-1 hover:skew-x-2 transition-transform" href="#">Gallery</a>
+<a class="text-slate-300 hover:text-pink-400 transition-colors hover:skew-x-2 font-medium" href="#">Blog</a>
+<a class="text-slate-300 hover:text-pink-400 transition-colors hover:skew-x-2 font-medium" href="#">Contact</a>
+</div>
+<button class="p-2 text-pink-500">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</nav>
+<main class="relative pt-32 pb-24 px-8 max-w-7xl mx-auto">
+<!-- Hero Section / Caption -->
+<header class="mb-16 relative">
+<div class="inline-block bg-tertiary text-on-tertiary px-6 py-2 -rotate-1 mb-6 relative z-10">
+<h1 class="font-comic text-4xl uppercase tracking-tight text-3d-title">SHOT BY FALCON</h1>
+</div>
+<p class="font-display italic text-2xl text-secondary block opacity-90 max-w-2xl">
+            Photography · Cinematography · Visual Storytelling
+        </p>
+<!-- SFX BURST -->
+<div class="absolute -top-10 right-0 md:right-20 pointer-events-none">
+<div class="font-comic text-5xl text-primary transform rotate-12 drop-shadow-[0_0_15px_rgba(255,176,202,0.5)] animate-pulse">
+                *CLICK!*
+            </div>
+</div>
+</header>
+<!-- Filter Bar -->
+<nav class="flex flex-wrap gap-4 mb-20 items-center">
+<button class="px-6 py-2 bg-primary text-on-primary-container font-mono text-sm font-bold shadow-[4px_4px_0px_0px_#3d06f2] active:scale-95 transition-all">ALL</button>
+<button class="px-6 py-2 text-primary border-2 border-primary/20 font-mono text-sm hover:bg-primary/10 transition-colors">PHOTOS</button>
+<button class="px-6 py-2 text-primary border-2 border-primary/20 font-mono text-sm hover:bg-primary/10 transition-colors">REELS</button>
+<button class="px-6 py-2 text-primary border-2 border-primary/20 font-mono text-sm hover:bg-primary/10 transition-colors">CINEMATIC</button>
+<button class="px-6 py-2 text-primary border-2 border-primary/20 font-mono text-sm hover:bg-primary/10 transition-colors">BTS</button>
+</nav>
+<!-- Masonry Gallery -->
+<div class="masonry">
+<!-- Item 1: Vertical 9:16 Reel -->
+<div class="masonry-item group relative overflow-hidden bg-surface-container-low border-[3px] border-white/5 hover:border-primary">
+<div class="item-grain"></div>
+<div class="aspect-[9/16] relative">
+<img class="w-full h-full object-cover filter contrast-125 brightness-75" data-alt="Cinematic vertical shot of neon city streets at night" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCW2ysolnudPtojBJ2fzfjbAocwlrRiwuoXL9FpbTQeVpILDO_IU6EFKSZzDKd9Vy6fITukJsQlQMX13-QIZw37AlQlnJStnm3mI2EEVNXfebRQw3KHQ8_ncEP5x1pjmp-IHsnZ1o85pM3WQDQgMX0KqRamLYPDVtQc5vUTZDeG_AyZXaTVroW-fNnwXizXEW_scMfvjTQ-8DpaG83UXLbJEYQjZqQpBJfUnB1Wdt_8x3oDpZtdo7-f4RFa0GTIE4WGUPLGCNEg1gME"/>
+<div class="absolute inset-0 flex items-center justify-center z-20">
+<div class="w-16 h-16 rounded-full bg-primary/20 backdrop-blur-md flex items-center justify-center border border-primary text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0a0808] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 z-20">
+<span class="text-xs font-mono text-primary mb-1">[REEL]</span>
+<h3 class="font-headline font-bold text-xl uppercase tracking-tighter text-on-surface">Midnight Drifter</h3>
+</div>
+</div>
+</div>
+<!-- Item 2: Square 1:1 Photo -->
+<div class="masonry-item group relative overflow-hidden bg-surface-container-low border-[3px] border-white/5 hover:border-primary">
+<div class="item-grain"></div>
+<div class="aspect-square relative">
+<img class="w-full h-full object-cover filter grayscale contrast-150" data-alt="Close up high contrast photography portrait with shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8p4saiq0FOx9LDW_EMTpCKIVqnyQP_Ex0dZCbVlFIdVmZuJyeDtiYpfmbZ37DL2pA3hcAS-7xJ_gq0m7q15pLdlRaDLqaSB5zrOsX2LHkNTyqhzyppRJKpryN-zVxLs1ON2_b8ns076skEmj-eKyGiYninis6qrmpVh3I66InHvn_beG_68RY3CmmfbGB_dRmu9RPJhx96UqlsMmxA1ifVR-F9T0BcfYbctQA2m0BZNWVnENoIvaPZL7W1zWt4SRt7L9qNz0mlLI2"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0a0808] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 z-20">
+<span class="text-xs font-mono text-primary mb-1">[PHOTO]</span>
+<h3 class="font-headline font-bold text-xl uppercase tracking-tighter text-on-surface">The Observer</h3>
+</div>
+</div>
+</div>
+<!-- Item 3: 4:5 Portrait Photo -->
+<div class="masonry-item group relative overflow-hidden bg-surface-container-low border-[3px] border-white/5 hover:border-primary">
+<div class="item-grain"></div>
+<div class="aspect-[4/5] relative">
+<img class="w-full h-full object-cover" data-alt="Abstract aesthetic photography of architectural lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmlxoZMQHILfxm4xTctnPcWkB6b4TOQSnptehGJ4w-DWg64t9Sb9WcZhlTywunkoOnJ2MPCxiZxxCLu7uY3VCITjOs1cBaL3qL4WB3d6xVLNgfSrPqUtvDo_T4H49MBe6cDm0kHJvSUx_7efjiC9zyQlvTk0avkpi2MLSPP1Pdh7UkeU1AUszn-jKAFnSfixtY9thytY3aoaNb8cu4qDkZ1MnRF-kjqTxi35GU4aFMQuTxy1DbqwbL03QJLZOAhaPB9LsRBKibeaU0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0a0808] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 z-20">
+<span class="text-xs font-mono text-primary mb-1">[PHOTO]</span>
+<h3 class="font-headline font-bold text-xl uppercase tracking-tighter text-on-surface">Brutalist Dreams</h3>
+</div>
+</div>
+</div>
+<!-- Item 4: 16:9 Landscape Video -->
+<div class="masonry-item group relative overflow-hidden bg-surface-container-low border-[3px] border-white/5 hover:border-primary">
+<div class="item-grain"></div>
+<div class="aspect-video relative">
+<img class="w-full h-full object-cover brightness-50" data-alt="Wide cinematic landscape shot of foggy mountains" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDkOMpxJPVOCnCv7w_cj2MykgzLCkcJk-_nemsUwuQW9-Z--EbaT8tnrjgT9S6P72bqeQyoV_mAXO85f_9GvN1a-i3uCUx2HIPAorcRUYYVV0viWZZJczUSRQcCxTogklha7bTcE-kYc0jUv2ZbJgD_9yG3_QF4XPmcBvxEbFJhHjbYzFWOVZfsFjinUT0E7QhCRmbNaNDX4nMoJf1QURXPOreHnK4VUD3RIvKt6Rsb34VHQr9OH3qpo9e_N2nuif3uHgTezh89YTD"/>
+<div class="absolute inset-0 flex items-center justify-center z-20">
+<div class="w-12 h-12 rounded-full bg-primary/20 backdrop-blur-md flex items-center justify-center border border-primary text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0a0808] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 z-20">
+<span class="text-xs font-mono text-primary mb-1">[CINEMATIC]</span>
+<h3 class="font-headline font-bold text-xl uppercase tracking-tighter text-on-surface">Horizon Zero</h3>
+</div>
+</div>
+</div>
+<!-- Item 5: 9:16 Vertical Reel -->
+<div class="masonry-item group relative overflow-hidden bg-surface-container-low border-[3px] border-white/5 hover:border-primary">
+<div class="item-grain"></div>
+<div class="aspect-[9/16] relative">
+<img class="w-full h-full object-cover" data-alt="Dynamic vertical street style urban photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNDhanw6LYr5_NK0HdOFEkwU31QkFTuWkyRRDdj-blcmGa_Kvk48tpSTj8MrP2u2mj2YDWqm0uhTmEqRhJFGTdGPYpoC_C-7oK8jEO6Jp3zRHVI8AO8YZ1QFvu_a4NkH5GqTw8imKAozOhi30Q4UUSAV_A498mSPMyMyjSgnCyTIfWTnM3Vmcm459-q2_otOfszXgSdFv0P0GF6MPWOiVNT6Ag7R0fSWguObdBL0I8fCNTx3gU_0W3NpQGQGrH_9cp591ekq0erLHI"/>
+<div class="absolute inset-0 flex items-center justify-center z-20">
+<div class="w-16 h-16 rounded-full bg-primary/20 backdrop-blur-md flex items-center justify-center border border-primary text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0a0808] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 z-20">
+<span class="text-xs font-mono text-primary mb-1">[REEL]</span>
+<h3 class="font-headline font-bold text-xl uppercase tracking-tighter text-on-surface">Cyberpunk Vibe</h3>
+</div>
+</div>
+</div>
+<!-- Item 6: 4:5 Photo -->
+<div class="masonry-item group relative overflow-hidden bg-surface-container-low border-[3px] border-white/5 hover:border-primary">
+<div class="item-grain"></div>
+<div class="aspect-[4/5] relative">
+<img class="w-full h-full object-cover" data-alt="Warm tone photography of European architecture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArVrophqjOLI9dsG_Kp4nSY6b-41CycYA35euXEx1Brc3-LGO9S3scJa0lfnynQ7TBwUc3_hTspGQTFelh_xvUt7WkiIobFGDa6fUBYdbHHi0obIVFMFQQpyQ8slVkPOZ0vjbz4EJxO6bCl5X2NKkxy_BaZ2FkFnuupxOsVS16h0NjwuT1teOXHGO-gyLHSp8jrx6hBMmiFoMcy4Abik4QDP0t8I-AXY_-xjAQ-rzm4ktsb7cV8tai5KcQiCX84Si7s0MRL8yIy0ph"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0a0808] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 z-20">
+<span class="text-xs font-mono text-primary mb-1">[BTS]</span>
+<h3 class="font-headline font-bold text-xl uppercase tracking-tighter text-on-surface">Golden Hour Flow</h3>
+</div>
+</div>
+</div>
+</div>
+<!-- Instagram CTA -->
+<footer class="mt-40 text-center">
+<a class="inline-flex items-center gap-4 group" href="#">
+<span class="font-headline font-black text-2xl uppercase tracking-tighter text-on-surface group-hover:text-primary transition-colors">
+                Follow the lens → @shot_by_f.a.l.c.o.n
+            </span>
+<div class="w-12 h-12 bg-primary flex items-center justify-center shadow-[4px_4px_0px_0px_#3d06f2] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="photo_camera">photo_camera</span>
+</div>
+</a>
+</footer>
+</main>
+<!-- Page Marker -->
+<div class="fixed bottom-8 left-8 z-40">
+<div class="font-mono text-sm tracking-[0.2em] text-primary bg-[#0a0808] py-1 px-4 border-l-4 border-primary shadow-[4px_4px_0px_0px_#3d06f21a]">
+        PAGE 07
+    </div>
+</div>
+<!-- Footer Component -->
+<footer class="bg-[#12121f] flex flex-col md:flex-row justify-between items-center w-full px-8 py-12 gap-4 border-t border-white/5 bg-dot-pattern-halftone relative z-30">
+<div class="text-sm font-bold text-slate-500 font-mono uppercase tracking-widest">
+        © 2024 RAJIV // MULTIVERSAL ENGINEER
+    </div>
+<div class="flex gap-8">
+<a class="text-slate-500 font-mono text-xs uppercase tracking-widest hover:text-white transition-colors" href="#">Source</a>
+<a class="text-slate-500 font-mono text-xs uppercase tracking-widest hover:text-white transition-colors" href="#">Status</a>
+<a class="text-slate-500 font-mono text-xs uppercase tracking-widest hover:text-white transition-colors" href="#">Archive</a>
+</div>
+</footer>
+</body></html>

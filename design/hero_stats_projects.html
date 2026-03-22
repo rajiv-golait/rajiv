@@ -1,0 +1,496 @@
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RAJIV // MULTIVERSAL ARCHITECT</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;family=Bangers&amp;family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ffb0ca",
+                        "primary-container": "#ff479c",
+                        "secondary": "#c5c0ff",
+                        "secondary-container": "#3d06f2",
+                        "tertiary": "#e9c400",
+                        "surface": "#0e0e1a",
+                        "background": "#050510",
+                        "on-background": "#e3e0f3",
+                        "comic-border": "#1a1a35"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "mono": ["JetBrains Mono"],
+                        "comic": ["Bangers"],
+                        "display": ["Playfair Display"]
+                    },
+                    borderRadius: {
+                        "asymmetric": "8px"
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        html { scroll-behavior: smooth; }
+        .eng-bg {
+            background-color: #050510;
+            background-image: 
+                radial-gradient(rgba(255, 176, 202, 0.1) 1px, transparent 0),
+                linear-gradient(#1a1a35 0.7px, transparent 0.7px), 
+                linear-gradient(90deg, #1a1a35 0.7px, transparent 0.7px);
+            background-size: 16px 16px, 40px 40px, 40px 40px;
+        }
+        .gallery-bg {
+            background-color: #0a0808;
+            position: relative;
+        }
+        .gallery-bg::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.05;
+            pointer-events: none;
+        }
+        .comic-card {
+            background-color: #0e0e1a;
+            border: 3px solid #1a1a35;
+            border-bottom-right-radius: 24px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+        .duotone-pink {
+            filter: grayscale(100%) contrast(1.2) brightness(0.8) sepia(50%) hue-rotate(280deg) saturate(300%);
+        }
+        .halftone-dot-overlay::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
+            background-size: 4px 4px;
+            opacity: 0.18;
+            pointer-events: none;
+        }
+        .sfx-burst {
+            position: absolute;
+            opacity: 0.2;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .neon-glow-pink { box-shadow: 0 0 20px rgba(255, 71, 156, 0.15); }
+        .neon-glow-blue { box-shadow: 0 0 20px rgba(61, 6, 242, 0.15); }
+        .page-marker {
+            position: absolute;
+            bottom: 24px;
+            left: 32px;
+            font-family: 'JetBrains Mono';
+            font-size: 11px;
+            opacity: 0.4;
+            letter-spacing: 0.1em;
+        }
+        .tilted-caption {
+            transform: rotate(-2deg);
+            box-shadow: 3px 3px 0px #000;
+        }
+        .masonry { column-count: 1; column-gap: 2rem; }
+        @media (min-width: 768px) { .masonry { column-count: 2; } }
+        @media (min-width: 1024px) { .masonry { column-count: 3; } }
+        .masonry-item { break-inside: avoid; margin-bottom: 2rem; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body overflow-x-hidden">
+<!-- TOP NAVIGATION -->
+<header class="fixed top-0 left-0 w-full h-[64px] z-[100] flex justify-between items-center px-8 md:px-12 bg-background/80 backdrop-blur-md border-b border-white/5">
+<div class="text-2xl font-black text-primary-container italic tracking-tighter font-headline uppercase">RAJIV</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-primary-container font-bold text-xs tracking-widest uppercase" href="#projects">Projects</a>
+<a class="text-on-background/70 hover:text-primary-container transition-colors text-xs font-bold tracking-widest uppercase" href="#experience">Experience</a>
+<a class="text-on-background/70 hover:text-primary-container transition-colors text-xs font-bold tracking-widest uppercase" href="#gallery">Gallery</a>
+<a class="text-on-background/70 hover:text-primary-container transition-colors text-xs font-bold tracking-widest uppercase" href="#contact">Contact</a>
+<button class="ml-4 px-5 py-2 bg-primary-container text-white font-bold tracking-wider hover:translate-y-1 transition-all shadow-[3px_3px_0_0_#3d06f2] uppercase text-[10px]" onclick="document.getElementById('contact').scrollIntoView()">
+            Connect
+        </button>
+</nav>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</header>
+<!-- 1. HERO SECTION -->
+<section class="relative w-full min-h-screen flex flex-col md:flex-row items-center justify-center px-8 md:px-12 py-[100px] gap-12 max-w-7xl mx-auto eng-bg" id="hero">
+<div class="page-marker">PAGE 01</div>
+<div class="sfx-burst top-20 right-20 scale-150 rotate-12">
+<svg fill="#ff479c" height="200" viewbox="0 0 200 200" width="200"><path d="M100 0L115 70L185 85L115 100L100 170L85 100L15 85L85 70Z"></path></svg>
+</div>
+<div class="flex-1 z-10 space-y-8 flex flex-col items-start">
+<div class="bg-tertiary px-4 py-1 tilted-caption">
+<span class="font-comic text-[#1a1a1a] text-lg tracking-wider">HEY, I'M</span>
+</div>
+<h1 class="font-headline font-black text-primary-container leading-none tracking-tighter text-[80px] md:text-[120px] uppercase" style="text-shadow: 4px 4px 0px #3d06f2;">
+            RAJIV
+        </h1>
+<div class="space-y-1 font-body font-bold text-[18px] md:text-[22px]">
+<p class="text-on-background leading-tight uppercase">ENGINEER BY LOGIC.</p>
+<p class="leading-tight uppercase">
+<span class="text-primary-container">shot_by_f.a.l.c.o.n</span> <span class="text-on-background">BY INSTINCT.</span>
+</p>
+</div>
+<p class="max-w-md text-on-background/60 text-[15px] leading-relaxed">
+            I solve problems with data and AI. Then I pick up a camera.
+        </p>
+<div class="flex gap-4 pt-4">
+<a class="w-10 h-10 flex items-center justify-center bg-primary-container/10 border border-primary-container text-primary-container rounded-full hover:bg-primary-container hover:text-white transition-all neon-glow-pink" href="#"><span class="material-symbols-outlined text-[18px]">code</span></a>
+<a class="w-10 h-10 flex items-center justify-center bg-primary-container/10 border border-primary-container text-primary-container rounded-full hover:bg-primary-container hover:text-white transition-all neon-glow-pink" href="#"><span class="material-symbols-outlined text-[18px]">groups</span></a>
+<a class="w-10 h-10 flex items-center justify-center bg-primary-container/10 border border-primary-container text-primary-container rounded-full hover:bg-primary-container hover:text-white transition-all neon-glow-pink" href="#"><span class="material-symbols-outlined text-[18px]">photo_camera</span></a>
+<a class="w-10 h-10 flex items-center justify-center bg-primary-container/10 border border-primary-container text-primary-container rounded-full hover:bg-primary-container hover:text-white transition-all neon-glow-pink" href="#"><span class="material-symbols-outlined text-[18px]">mail</span></a>
+</div>
+</div>
+<div class="flex-1 relative group w-full max-w-lg aspect-[4/5] z-0">
+<div class="relative w-full h-full comic-card overflow-hidden halftone-dot-overlay text-primary-container border-[4px]">
+<div class="absolute inset-0 w-full h-full bg-[#0a0a14]">
+<img alt="Portrait of Rajiv" class="w-full h-full object-cover duotone-pink" src="https://lh3.googleusercontent.com/aida/ADBb0ugUuC6eoE_bMG01fJQ5DMnQxQPEV3VjttrRFGf8vhCk3XuFE9rhJ3zc15fhUC4njBga30V9F8tu9BHsB31L2EZGt3UVBTiirzS1XWjwecNJsAfjBqVNhyFxKJ2Vh7D9IKfM9KKUNk7fBfj5t6yqcahlOzsHezoQ6jd2NdgOtzrP8KAfbzmfut5Xq6dyJzInVxeX5XgiWR1nvuivAwm0oDTnYOkfzwdxV7kGERfUqO-nCAZMIHy1fBAoAAwpXbXVBbM61jhnny7KCHM"/>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. STATS + PROJECTS -->
+<section class="py-[100px] px-8 max-w-7xl mx-auto eng-bg relative" id="projects">
+<div class="page-marker">PAGE 02</div>
+<div class="grid grid-cols-2 md:grid-cols-4 comic-card mb-24 divide-x divide-white/5">
+<div class="p-8 flex flex-col items-center md:items-start"><span class="font-headline font-black text-5xl text-primary-container tracking-tighter" style="text-shadow: 0 0 10px rgba(255,71,156,0.3)">1</span><span class="font-mono text-on-background/40 text-[10px] uppercase mt-2 tracking-widest">NATIONAL WIN</span></div>
+<div class="p-8 flex flex-col items-center md:items-start"><span class="font-headline font-black text-5xl text-primary-container tracking-tighter" style="text-shadow: 0 0 10px rgba(255,71,156,0.3)">8+</span><span class="font-mono text-on-background/40 text-[10px] uppercase mt-2 tracking-widest">PROJECTS SHIPPED</span></div>
+<div class="p-8 flex flex-col items-center md:items-start"><span class="font-headline font-black text-5xl text-primary-container tracking-tighter" style="text-shadow: 0 0 10px rgba(255,71,156,0.3)">36</span><span class="font-mono text-on-background/40 text-[10px] uppercase mt-2 tracking-widest">HOUR HACKATHON</span></div>
+<div class="p-8 flex flex-col items-center md:items-start"><span class="font-headline font-black text-5xl text-primary-container tracking-tighter" style="text-shadow: 0 0 10px rgba(255,71,156,0.3)">2026</span><span class="font-mono text-on-background/40 text-[10px] uppercase mt-2 tracking-widest">GRADUATING</span></div>
+</div>
+<div class="relative mb-16">
+<div class="absolute -top-12 -right-8 pointer-events-none transform rotate-12 bg-secondary-container p-4 shadow-[3px_3px_0px_0px_#e9c400] z-10">
+<span class="font-comic text-tertiary text-3xl tracking-widest">BZZT!</span>
+</div>
+<div class="inline-block bg-tertiary px-6 py-2 tilted-caption mb-6">
+<h2 class="font-comic text-[#1a1a1a] text-3xl tracking-wider">WHAT I BUILD</h2>
+</div>
+<p class="text-on-background/70 font-medium max-w-md border-l-4 border-primary-container pl-4">Problems I found interesting enough to actually solve.</p>
+</div>
+<div class="flex flex-wrap gap-4 mb-16">
+<button class="px-6 py-2 bg-primary-container text-white font-comic text-xl tracking-wide shadow-[3px_3px_0_0_#3d06f2]">ALL</button>
+<button class="px-6 py-2 bg-surface border border-comic-border text-on-background font-comic text-xl tracking-wide hover:text-primary-container transition-colors">AI/ML</button>
+<button class="px-6 py-2 bg-surface border border-comic-border text-on-background font-comic text-xl tracking-wide hover:text-primary-container transition-colors">DATA</button>
+<button class="px-6 py-2 bg-surface border border-comic-border text-on-background font-comic text-xl tracking-wide hover:text-primary-container transition-colors">HARDWARE</button>
+</div>
+<!-- Featured Project -->
+<div class="flex flex-col lg:flex-row mb-16 comic-card overflow-hidden group border-[3px]">
+<div class="w-full lg:w-[55%] relative h-80 lg:h-auto overflow-hidden bg-background flex items-center justify-center p-12">
+<div class="absolute top-4 left-4 bg-primary-container text-white px-3 py-1 font-comic text-sm font-bold z-10">SIH 2024 — WINNER</div>
+<div class="relative w-full h-full border border-primary-container/20 opacity-80">
+<svg class="w-full h-full" viewbox="0 0 400 300">
+<rect fill="none" height="60" stroke="#ff479c" stroke-width="2" width="80" x="50" y="50"></rect>
+<text fill="#ff479c" font-family="monospace" font-size="10" x="65" y="85">INPUT</text>
+<rect fill="none" height="40" stroke="#3d06f2" stroke-width="2" width="100" x="200" y="50"></rect>
+<text fill="#3d06f2" font-family="monospace" font-size="10" x="215" y="75">PROCESS</text>
+<rect fill="none" height="70" stroke="#ff479c" stroke-width="2" width="120" x="120" y="180"></rect>
+<text fill="#ff479c" font-family="monospace" font-size="10" x="130" y="210">MODEL</text>
+<path d="M90 110 Q100 150 120 180" fill="none" stroke="#ff479c" stroke-width="2"></path>
+<path d="M250 90 Q240 140 220 180" fill="none" stroke="#3d06f2" stroke-width="2"></path>
+<text fill="#e3e0f3" font-family="monospace" font-size="10" x="320" y="200">OUTPUT</text>
+</svg>
+</div>
+</div>
+<div class="w-full lg:w-[45%] p-10 flex flex-col justify-center">
+<h3 class="font-headline font-bold text-[28px] text-primary-container mb-2 tracking-tight uppercase">ACE — Admission Chat Engine</h3>
+<p class="text-on-background font-semibold mb-4 text-lg">Multilingual AI chatbot that answers admission queries for Rajasthan's Dept. of Technical Education.</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-2 py-1 bg-primary-container/10 text-primary-container font-mono text-[10px] uppercase border border-primary-container/20">Python</span>
+<span class="px-2 py-1 bg-primary-container/10 text-primary-container font-mono text-[10px] uppercase border border-primary-container/20">LangChain</span>
+<span class="px-2 py-1 bg-primary-container/10 text-primary-container font-mono text-[10px] uppercase border border-primary-container/20">Gemini API</span>
+<span class="px-2 py-1 bg-primary-container/10 text-primary-container font-mono text-[10px] uppercase border border-primary-container/20">NLP</span>
+</div>
+<div class="flex flex-wrap gap-4">
+<button class="px-8 py-3 bg-primary-container text-white font-black text-xs uppercase tracking-widest shadow-[3px_3px_0_0_#3d06f2]">VIEW PROJECT</button>
+<button class="px-8 py-3 border-2 border-primary-container text-on-background font-black text-xs uppercase tracking-widest hover:bg-primary-container/10">GITHUB ↗</button>
+</div>
+</div>
+</div>
+<!-- Small Projects Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="comic-card p-6 hover:-translate-y-2 transition-all group neon-glow-pink">
+<h4 class="font-headline font-bold text-xl text-primary-container mb-3 uppercase">AI Price Predictor</h4>
+<p class="text-sm text-on-background/70 mb-6 h-12 overflow-hidden">Real estate valuation engine using advanced regression techniques.</p>
+<div class="flex flex-wrap gap-2">
+<span class="text-[9px] font-mono border border-primary-container/30 px-2 py-1 text-primary-container uppercase">Python</span>
+<span class="text-[9px] font-mono border border-primary-container/30 px-2 py-1 text-primary-container uppercase">Scikit-learn</span>
+<span class="text-[9px] font-mono border border-primary-container/30 px-2 py-1 text-primary-container uppercase">Pandas</span>
+</div>
+</div>
+<div class="comic-card p-6 hover:-translate-y-2 transition-all group neon-glow-pink">
+<h4 class="font-headline font-bold text-xl text-primary-container mb-3 uppercase">Data Warehouse Architect</h4>
+<p class="text-sm text-on-background/70 mb-6 h-12 overflow-hidden">End-to-end data pipeline implementation for corporate inventory management.</p>
+<div class="flex flex-wrap gap-2">
+<span class="text-[9px] font-mono border border-primary-container/30 px-2 py-1 text-primary-container uppercase">SQL</span>
+<span class="text-[9px] font-mono border border-primary-container/30 px-2 py-1 text-primary-container uppercase">Data Warehousing</span>
+<span class="text-[9px] font-mono border border-primary-container/30 px-2 py-1 text-primary-container uppercase">Star Schema</span>
+</div>
+</div>
+<div class="comic-card p-6 hover:-translate-y-2 transition-all group neon-glow-pink">
+<h4 class="font-headline font-bold text-xl text-primary-container mb-3 uppercase">IoT Smart Hub</h4>
+<p class="text-sm text-on-background/70 mb-6 h-12 overflow-hidden">Embedded system for industrial sensor monitoring and alerting.</p>
+<div class="flex flex-wrap gap-2">
+<span class="text-[9px] font-mono border border-primary-container/30 px-2 py-1 text-primary-container uppercase">C++</span>
+<span class="text-[9px] font-mono border border-primary-container/30 px-2 py-1 text-primary-container uppercase">MATLAB</span>
+<span class="text-[9px] font-mono border border-primary-container/30 px-2 py-1 text-primary-container uppercase">IoT</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. TECH ARSENAL (Skills) -->
+<section class="py-[100px] px-8 max-w-7xl mx-auto eng-bg relative" id="arsenal">
+<div class="page-marker">PAGE 03</div>
+<div class="inline-block bg-tertiary text-[#1a1a1a] px-6 py-2 tilted-caption mb-6">
+<h2 class="font-comic text-4xl tracking-wider uppercase">MY ARSENAL</h2>
+</div>
+<p class="font-headline font-black text-2xl text-secondary max-w-xl leading-tight mb-20">I don't collect tools. I pick what the problem needs.</p>
+<div class="relative w-full h-[600px] overflow-hidden flex items-center justify-center">
+<!-- AI/ML -->
+<div class="absolute top-[10%] left-[10%] flex flex-col items-center gap-2">
+<div class="w-14 h-14 bg-surface border-2 border-primary-container flex items-center justify-center text-center p-1 comic-card !rounded-full">
+<span class="font-mono font-bold text-[11px] text-primary-container uppercase">Python</span>
+</div>
+<div class="flex gap-2">
+<div class="w-10 h-10 bg-surface border border-comic-border flex items-center justify-center text-[10px] font-mono text-center">LangChain</div>
+<div class="w-10 h-10 bg-surface border border-comic-border flex items-center justify-center text-[10px] font-mono text-center">Gemini API</div>
+</div>
+<span class="font-comic text-tertiary text-sm mt-2 uppercase tracking-widest">AI/ML</span>
+</div>
+<!-- Data Science -->
+<div class="absolute top-[15%] right-[10%] flex flex-col items-center gap-2">
+<div class="w-14 h-14 bg-surface border-2 border-primary-container flex items-center justify-center text-center p-1 comic-card !rounded-full">
+<span class="font-mono font-bold text-[11px] text-primary-container uppercase">Pandas</span>
+</div>
+<div class="flex gap-2">
+<div class="w-10 h-10 bg-surface border border-comic-border flex items-center justify-center text-[10px] font-mono text-center">NumPy</div>
+<div class="w-10 h-10 bg-surface border border-comic-border flex items-center justify-center text-[10px] font-mono text-center">SQL</div>
+</div>
+<span class="font-comic text-tertiary text-sm mt-2 uppercase tracking-widest">DATA SCIENCE</span>
+</div>
+<!-- Central Hub -->
+<div class="z-20 w-32 h-32 bg-background border-[4px] border-primary-container flex items-center justify-center text-center p-2 rounded-full neon-glow-pink">
+<span class="font-headline font-black text-sm text-primary-container uppercase">CORE<br/>LOGIC</span>
+</div>
+<!-- E&TC -->
+<div class="absolute bottom-[10%] left-[15%] flex flex-col items-center gap-2">
+<div class="w-14 h-14 bg-surface border-2 border-primary-container flex items-center justify-center text-center p-1 comic-card !rounded-full">
+<span class="font-mono font-bold text-[11px] text-primary-container uppercase">C++</span>
+</div>
+<div class="flex gap-2">
+<div class="w-10 h-10 bg-surface border border-comic-border flex items-center justify-center text-[10px] font-mono text-center">MATLAB</div>
+<div class="w-10 h-10 bg-surface border border-comic-border flex items-center justify-center text-[10px] font-mono text-center">IoT</div>
+</div>
+<span class="font-comic text-tertiary text-sm mt-2 uppercase tracking-widest">E&amp;TC</span>
+</div>
+</div>
+</section>
+<!-- 4. PROOF OF WORK (Experience) -->
+<section class="py-[100px] px-8 max-w-7xl mx-auto eng-bg relative" id="experience">
+<div class="page-marker">PAGE 04</div>
+<div class="mb-16">
+<div class="inline-block bg-tertiary text-[#1a1a1a] px-6 py-2 tilted-caption mb-6">
+<span class="font-comic text-4xl tracking-wider uppercase">PROOF OF WORK</span>
+</div>
+<p class="font-mono text-xs tracking-tighter opacity-50 ml-2">Field log. Kept tight.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+<div class="flex flex-col">
+<div class="flex items-center gap-4 mb-10">
+<span class="font-mono text-primary-container font-bold tracking-widest text-[10px] uppercase">FIELD LOG</span>
+<div class="h-px flex-grow bg-gradient-to-r from-primary-container/30 to-transparent"></div>
+</div>
+<div class="relative pl-8 ml-2 border-l-2 border-secondary-container space-y-12">
+<div class="relative group">
+<div class="absolute -left-10 top-2 w-4 h-4 rounded-full bg-primary-container border-4 border-background shadow-[0_0_10px_rgba(255,71,156,0.6)]"></div>
+<div class="comic-card p-6 group-hover:-translate-y-1 transition-all neon-glow-pink">
+<div class="flex justify-between items-start mb-4">
+<div><h3 class="font-headline font-black text-2xl text-on-background uppercase leading-none">Smart India Hackathon 2024</h3><p class="font-mono text-primary-container text-xs font-bold mt-1">Team Lead — ACE Chatbot</p></div>
+<span class="font-mono text-[10px] opacity-50 bg-background px-2 py-1">2024</span>
+</div>
+<p class="text-sm opacity-70 mb-6 leading-relaxed">Led a team of 6. Built an AI-powered multilingual admission chatbot for Rajasthan's Dept. of Technical Education. Won.</p>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -left-10 top-2 w-4 h-4 rounded-full bg-primary-container border-4 border-background shadow-[0_0_10px_rgba(255,71,156,0.6)]"></div>
+<div class="comic-card p-6 group-hover:-translate-y-1 transition-all neon-glow-pink">
+<div class="flex justify-between items-start mb-4">
+<div><h3 class="font-headline font-black text-2xl text-on-background uppercase leading-none">Pinnacle Labs Pvt. Ltd.</h3><p class="font-mono text-primary-container text-xs font-bold mt-1">Software Intern</p></div>
+<span class="font-mono text-[10px] opacity-50 bg-background px-2 py-1">2023</span>
+</div>
+<p class="text-sm opacity-70 mb-6 leading-relaxed">First professional environment. Shipped under real deadlines. Learned to write code that a team can read and maintain.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center">
+<div class="bg-surface p-10 border-[3px] border-secondary-container comic-card relative neon-glow-blue max-w-md w-full text-center group">
+<div class="w-16 h-16 mx-auto mb-6 bg-secondary-container/20 flex items-center justify-center rotate-45 border-2 border-secondary-container group-hover:rotate-90 transition-transform duration-500">
+<span class="material-symbols-outlined text-secondary text-3xl -rotate-45 group-hover:-rotate-90 transition-transform duration-500">school</span>
+</div>
+<h3 class="font-headline font-black text-2xl text-on-background uppercase leading-tight mb-2">Vidyavardhini's College</h3>
+<div class="font-mono text-secondary text-sm font-bold mb-1">B.E. — Electronics &amp; Telecommunication</div>
+<div class="font-mono text-[10px] opacity-40 tracking-widest uppercase">3rd Year · 2022–2026</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. VERIFIED INTEL (Certs) -->
+<section class="py-[100px] px-8 max-w-7xl mx-auto eng-bg relative" id="certifications">
+<div class="page-marker">PAGE 05</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="flex flex-col gap-6">
+<div class="inline-block self-start bg-tertiary text-[#1a1a1a] px-6 py-2 tilted-caption mb-4">
+<span class="font-comic text-2xl tracking-widest uppercase">VERIFIED INTEL</span>
+</div>
+<div class="space-y-4">
+<div class="comic-card p-4 flex items-center gap-4 hover:translate-x-2 transition-transform neon-glow-pink">
+<div class="w-10 h-10 rounded-full border-2 border-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-primary-container text-xl">analytics</span></div>
+<div class="flex-grow">
+<h3 class="font-headline font-bold text-sm uppercase">Python for Data Science</h3>
+<p class="text-secondary text-[10px] font-mono">Coursera</p>
+</div>
+</div>
+<div class="comic-card p-4 flex items-center gap-4 hover:translate-x-2 transition-transform neon-glow-pink">
+<div class="w-10 h-10 rounded-full border-2 border-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-primary-container text-xl">psychology</span></div>
+<div class="flex-grow">
+<h3 class="font-headline font-bold text-sm uppercase">ML Specialization</h3>
+<p class="text-secondary text-[10px] font-mono">Stanford Online</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<div class="inline-block self-end bg-tertiary text-[#1a1a1a] px-6 py-2 tilted-caption mb-4" style="transform: rotate(2deg);">
+<span class="font-comic text-2xl tracking-widest uppercase">MISSIONS COMPLETED</span>
+</div>
+<div class="comic-card p-8 border-l-[6px] border-l-primary-container neon-glow-pink">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h2 class="font-headline font-black text-2xl text-primary-container italic uppercase">SMART INDIA HACKATHON 2024</h2>
+<p class="font-mono text-secondary text-[10px] mt-2">ACE — Admission Chat Engine</p>
+</div>
+<div class="bg-primary-container text-white px-3 py-1 font-comic text-lg -rotate-3">WINNER</div>
+</div>
+<p class="text-sm opacity-70 leading-relaxed max-w-md">National level. Dept. of Technical Education, Rajasthan. 36-hour build. Led a team of 6 engineers.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. THE LOG (Blog) -->
+<section class="py-[100px] px-8 max-w-7xl mx-auto eng-bg relative" id="blog">
+<div class="page-marker">PAGE 06</div>
+<div class="mb-16">
+<div class="inline-block bg-tertiary text-[#1a1a1a] px-6 py-2 tilted-caption mb-6">
+<h2 class="font-comic text-4xl tracking-wider uppercase">THE LOG</h2>
+</div>
+<p class="font-headline text-xl text-secondary">Problems I couldn't stop thinking about.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<a class="comic-card p-8 hover:border-primary-container transition-colors group flex flex-col justify-between" href="#">
+<h3 class="font-headline font-bold text-xl group-hover:text-primary-container transition-colors uppercase leading-tight">Why K-Medoids Beats K-Means for Noisy Datasets</h3>
+<div class="mt-8 flex justify-between items-center">
+<span class="font-mono text-[10px] opacity-50 uppercase tracking-widest">Data Science</span>
+<span class="material-symbols-outlined text-primary-container group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</div>
+</a>
+<a class="comic-card p-8 hover:border-primary-container transition-colors group flex flex-col justify-between" href="#">
+<h3 class="font-headline font-bold text-xl group-hover:text-primary-container transition-colors uppercase leading-tight">What SIH 2024 Taught Me About Shipping Under Pressure</h3>
+<div class="mt-8 flex justify-between items-center">
+<span class="font-mono text-[10px] opacity-50 uppercase tracking-widest">Lessons</span>
+<span class="material-symbols-outlined text-primary-container group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</div>
+</a>
+</div>
+</section>
+<!-- 7. THE SHIFT (Visual Break) -->
+<section class="relative min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-r from-[#050510] to-[#0a0808] overflow-hidden">
+<div class="absolute inset-0 flex pointer-events-none opacity-10">
+<div class="flex-1 halftone-dot-overlay text-secondary-container"></div>
+<div class="flex-1 halftone-dot-overlay text-primary"></div>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-12 px-6">
+<div class="bg-tertiary px-10 py-4 tilted-caption">
+<h2 class="font-comic text-4xl md:text-6xl text-[#1a1a1a] tracking-wider uppercase">BUT WHEN THE SUN SETS...</h2>
+</div>
+<div class="flex flex-col items-center text-center">
+<p class="font-display italic text-3xl md:text-[42px] leading-tight text-on-background/80">Hand him a camera,</p>
+<p class="font-display italic text-3xl md:text-[42px] leading-tight text-on-background/80">and he becomes</p>
+</div>
+<div class="relative group">
+<h1 class="font-display italic text-5xl md:text-[54px] text-primary-container tracking-tight" style="text-shadow: 0 0 20px rgba(255, 71, 156, 0.4);">shot_by_f.a.l.c.o.n</h1>
+<div class="absolute -right-16 -top-12 transform rotate-12 sfx-burst opacity-100">
+<div class="bg-primary-container w-20 h-20 flex items-center justify-center" style="clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);">
+<span class="font-comic text-[10px] text-white">*CLICK!*</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 8. SHOT BY FALCON (Gallery) -->
+<section class="py-[100px] px-8 max-w-7xl mx-auto gallery-bg relative" id="gallery">
+<div class="page-marker">PAGE 07</div>
+<header class="mb-16">
+<div class="inline-block bg-tertiary text-[#1a1a1a] px-6 py-2 tilted-caption mb-6">
+<h1 class="font-comic text-4xl uppercase tracking-tight">SHOT BY FALCON</h1>
+</div>
+<p class="font-display italic text-2xl text-secondary opacity-90">Photography · Cinematography · Visual Storytelling</p>
+</header>
+<div class="flex flex-wrap gap-4 mb-12">
+<button class="px-6 py-2 bg-primary-container text-white font-mono text-xs font-bold shadow-[3px_3px_0_0_#3d06f2]">ALL</button>
+<button class="px-6 py-2 text-on-background/60 border-2 border-white/5 font-mono text-xs hover:bg-white/5 uppercase">Photos</button>
+<button class="px-6 py-2 text-on-background/60 border-2 border-white/5 font-mono text-xs hover:bg-white/5 uppercase">Reels</button>
+</div>
+<div class="masonry">
+<div class="masonry-item group comic-card overflow-hidden">
+<div class="aspect-[9/16] relative bg-[#0a0a14]">
+<img class="w-full h-full object-cover filter contrast-125 brightness-75 duotone-pink" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCW2ysolnudPtojBJ2fzfjbAocwlrRiwuoXL9FpbTQeVpILDO_IU6EFKSZzDKd9Vy6fITukJsQlQMX13-QIZw37AlQlnJStnm3mI2EEVNXfebRQw3KHQ8_ncEP5x1pjmp-IHsnZ1o85pM3WQDQgMX0KqRamLYPDVtQc5vUTZDeG_AyZXaTVroW-fNnwXizXEW_scMfvjTQ-8DpaG83UXLbJEYQjZqQpBJfUnB1Wdt_8x3oDpZtdo7-f4RFa0GTIE4WGUPLGCNEg1gME"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-12 h-12 rounded-full bg-primary-container/20 backdrop-blur-md flex items-center justify-center border border-primary-container text-primary-container group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+</div>
+</div>
+<div class="masonry-item comic-card overflow-hidden bg-surface h-80"></div>
+<div class="masonry-item comic-card overflow-hidden bg-surface h-64"></div>
+</div>
+</section>
+<!-- 9. CONTACT -->
+<section class="py-[100px] px-8 max-w-7xl mx-auto eng-bg relative" id="contact">
+<div class="page-marker">PAGE 08</div>
+<div class="flex flex-col items-center text-center gap-8">
+<div class="inline-block bg-tertiary text-[#1a1a1a] px-8 py-3 tilted-caption">
+<h2 class="font-comic text-5xl tracking-widest uppercase">GET IN TOUCH</h2>
+</div>
+<p class="font-headline text-2xl text-on-background/80 max-w-2xl">
+            Want to collaborate on a data project or need a vision captured? Let's build something multiversal.
+        </p>
+<div class="flex flex-wrap justify-center gap-6 mt-12">
+<a class="comic-card px-10 py-4 font-black text-primary-container hover:bg-primary-container hover:text-white transition-all neon-glow-pink" href="mailto:hello@rajiv.design">
+                EMAIL ME
+            </a>
+<a class="comic-card px-10 py-4 font-black text-secondary hover:bg-secondary-container hover:text-white transition-all neon-glow-blue" href="#">
+                LINKEDIN
+            </a>
+</div>
+</div>
+<footer class="mt-32 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="text-xl font-black text-primary-container italic font-headline uppercase">RAJIV</div>
+<p class="font-mono text-[10px] opacity-40 uppercase tracking-widest">© 2024 MULTIVERSAL ARCHITECT // ALL RIGHTS RESERVED</p>
+<div class="flex gap-4">
+<div class="w-2 h-2 rounded-full bg-primary-container"></div>
+<div class="w-2 h-2 rounded-full bg-secondary-container"></div>
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+</div>
+</footer>
+</section>
+</body></html>

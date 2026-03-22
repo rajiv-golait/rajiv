@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RAJIV | CONTACT</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;700&amp;family=Bangers&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary": "#e9c400",
+              "surface-container-high": "#292936",
+              "primary-fixed-dim": "#ffb0ca",
+              "on-tertiary": "#3a3000",
+              "inverse-surface": "#e3e0f3",
+              "on-primary-container": "#58002f",
+              "surface-container-highest": "#343341",
+              "surface": "#12121f",
+              "outline-variant": "#5b3f48",
+              "on-secondary": "#2500a2",
+              "on-primary": "#640036",
+              "secondary": "#c5c0ff",
+              "primary": "#ffb0ca",
+              "on-tertiary-fixed": "#221b00",
+              "surface-container": "#1f1e2b",
+              "outline": "#aa8892",
+              "on-secondary-fixed": "#140067",
+              "on-error-container": "#ffdad6",
+              "on-background": "#e3e0f3",
+              "on-surface": "#e3e0f3",
+              "tertiary-fixed-dim": "#e9c400",
+              "secondary-fixed-dim": "#c5c0ff",
+              "surface-container-lowest": "#0d0d19",
+              "on-primary-fixed": "#3e001f",
+              "error-container": "#93000a",
+              "tertiary-container": "#c9a900",
+              "on-error": "#690005",
+              "secondary-container": "#3d06f2",
+              "inverse-on-surface": "#2f2f3d",
+              "primary-fixed": "#ffd9e3",
+              "surface-variant": "#343341",
+              "inverse-primary": "#b90068",
+              "secondary-fixed": "#e3dfff",
+              "error": "#ffb4ab",
+              "on-secondary-fixed-variant": "#3700e1",
+              "surface-bright": "#383846",
+              "surface-tint": "#ffb0ca",
+              "on-primary-fixed-variant": "#8d004e",
+              "tertiary-fixed": "#ffe16d",
+              "background": "#12121f",
+              "on-tertiary-fixed-variant": "#544600",
+              "surface-dim": "#12121f",
+              "on-secondary-container": "#bdb7ff",
+              "on-surface-variant": "#e3bdc7",
+              "on-tertiary-container": "#4c3e00",
+              "primary-container": "#ff479c",
+              "surface-container-low": "#1a1a27"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Plus Jakarta Sans"],
+              "mono": ["JetBrains Mono"],
+              "bangers": ["Bangers"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .bg-dot-pattern {
+            background-image: radial-gradient(circle, #ffb0ca 0.5px, transparent 0.5px), radial-gradient(circle, #c5c0ff 0.5px, transparent 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            opacity: 0.15;
+        }
+        .halftone-overlay {
+            background-image: radial-gradient(#ff479c 1px, transparent 0);
+            background-size: 4px 4px;
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+            opacity: 0.05;
+        }
+        .comic-border {
+            border: 3px solid #e3e0f3;
+        }
+        .floating-form {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8), 4px 4px 0px 0px #3d06f2;
+            transform: translateY(-5px);
+        }
+        .neon-glow-dual-complex {
+            position: relative;
+        }
+        .neon-glow-dual-complex::before {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            background: radial-gradient(circle at top right, rgba(61, 6, 242, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at bottom left, rgba(255, 71, 156, 0.15) 0%, transparent 50%);
+            filter: blur(50px);
+            z-index: -1;
+        }
+        .floating-particles {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .particle {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.2;
+            animation: float-around var(--duration) linear infinite;
+        }
+        @keyframes float-around {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(var(--x), var(--y)); }
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary-container overflow-x-hidden min-h-screen">
+<!-- Background Layers -->
+<div class="fixed inset-0 z-[-2] bg-[#050510]"></div>
+<div class="fixed inset-0 z-[-1] bg-dot-pattern"></div>
+<div class="fixed inset-0 z-[-1] halftone-overlay"></div>
+<!-- Floating Particles -->
+<div class="floating-particles">
+<div class="particle" style="width: 2px; height: 2px; top: 10%; left: 20%; --x: 100px; --y: 150px; --duration: 20s;"></div>
+<div class="particle" style="width: 3px; height: 3px; top: 70%; left: 80%; --x: -120px; --y: -100px; --duration: 25s;"></div>
+<div class="particle" style="width: 1px; height: 1px; top: 40%; left: 10%; --x: 200px; --y: 50px; --duration: 30s;"></div>
+<div class="particle" style="width: 4px; height: 4px; top: 15%; left: 90%; --x: -50px; --y: 200px; --duration: 15s;"></div>
+<div class="particle" style="width: 2px; height: 2px; top: 85%; left: 30%; --x: 150px; --y: -80px; --duration: 22s;"></div>
+</div>
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-md shadow-[4px_4px_0px_0px_rgba(61,6,242,0.15)] flex justify-between items-center w-full px-8 py-6 max-w-full">
+<div class="text-2xl font-black tracking-tighter text-pink-500 dark:text-pink-500 uppercase font-headline">RAJIV</div>
+<nav class="hidden md:flex items-center gap-8 font-mono text-xs tracking-widest uppercase">
+<a class="text-slate-300 hover:text-pink-400 transition-colors hover:skew-x-2" href="#">Projects</a>
+<a class="text-slate-300 hover:text-pink-400 transition-colors hover:skew-x-2" href="#">Experience</a>
+<a class="text-slate-300 hover:text-pink-400 transition-colors hover:skew-x-2" href="#">Gallery</a>
+<a class="text-slate-300 hover:text-pink-400 transition-colors hover:skew-x-2" href="#">Blog</a>
+<a class="text-pink-500 font-bold border-b-2 border-pink-500 pb-1 hover:skew-x-2" href="#">Contact</a>
+</nav>
+<button class="md:hidden text-pink-500">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</header>
+<main class="relative pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto min-h-screen flex flex-col items-center justify-center">
+<!-- SFX Burst -->
+<div class="absolute top-24 right-10 md:right-24 transform rotate-12 z-10 hidden md:block">
+<div class="bg-primary-container text-on-primary-container px-6 py-2 font-bangers text-4xl tracking-widest skew-x-[-12deg] shadow-[6px_6px_0px_0px_#e9c400]">
+                BZZT!
+            </div>
+</div>
+<!-- Page Marker -->
+<div class="fixed bottom-12 left-8 font-mono text-sm text-primary/40 rotate-[-90deg] origin-left hidden md:block">
+            PAGE_09 // CONTACT_PROTOCOL
+        </div>
+<!-- Header Section -->
+<div class="mb-12 text-center md:text-left md:self-start">
+<div class="inline-block bg-tertiary text-on-tertiary px-4 py-1 font-bangers text-2xl rotate-[-2deg] mb-4 shadow-[4px_4px_0px_0px_#3d06f2]">
+                COMMS RELAY
+            </div>
+<p class="font-headline text-2xl md:text-3xl font-black text-on-surface max-w-lg leading-tight uppercase tracking-tighter">
+                Whether it's code or camera work — let's build something together.
+            </p>
+</div>
+<!-- Contact Card -->
+<div class="w-full max-w-[600px] bg-[#0e0e1a] comic-border neon-glow-dual-complex floating-form p-8 md:p-12 relative overflow-visible mb-12">
+<div class="absolute top-0 right-0 p-4 font-mono text-[10px] text-primary/20 pointer-events-none uppercase">
+                Secure_Link_Established
+            </div>
+<form class="space-y-8 relative z-10">
+<div class="group">
+<label class="block font-mono text-xs text-secondary mb-2 uppercase tracking-widest">ALIAS</label>
+<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-primary focus:ring-0 focus:border-secondary transition-all px-0 py-3 text-on-surface font-body placeholder:text-surface-variant" placeholder="TYPE YOUR NAME..." type="text"/>
+</div>
+<div class="group">
+<label class="block font-mono text-xs text-secondary mb-2 uppercase tracking-widest">FREQUENCY (EMAIL)</label>
+<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-primary focus:ring-0 focus:border-secondary transition-all px-0 py-3 text-on-surface font-body placeholder:text-surface-variant" placeholder="YOUR@VIRTUAL.ADDRESS" type="email"/>
+</div>
+<div class="group">
+<label class="block font-mono text-xs text-secondary mb-2 uppercase tracking-widest">TRANSMISSION DATA</label>
+<textarea class="w-full bg-surface-container-lowest border-0 border-b-2 border-primary focus:ring-0 focus:border-secondary transition-all px-0 py-3 text-on-surface font-body placeholder:text-surface-variant resize-none" placeholder="INITIATING ENCODING..." rows="4"></textarea>
+</div>
+<button class="w-full bg-[#ffd700] hover:bg-tertiary text-[#1a1a1a] font-bangers text-3xl py-4 transition-all shadow-[6px_6px_0px_0px_#3d06f2] active:translate-x-1 active:translate-y-1 active:shadow-none uppercase tracking-widest" type="submit">
+                    SEND TRANSMISSION
+                </button>
+</form>
+</div>
+<!-- Social & Action Links -->
+<div class="flex flex-col items-center gap-12 w-full">
+<!-- Social Circles -->
+<div class="flex flex-wrap justify-center gap-6">
+<a class="w-14 h-14 rounded-full border-2 border-secondary flex items-center justify-center text-secondary hover:bg-secondary hover:text-surface-container-lowest transition-all shadow-[4px_4px_0px_0px_rgba(197,192,255,0.3)]" href="#">
+<span class="material-symbols-outlined text-3xl" data-icon="code">code</span>
+</a>
+<a class="w-14 h-14 rounded-full border-2 border-secondary flex items-center justify-center text-secondary hover:bg-secondary hover:text-surface-container-lowest transition-all shadow-[4px_4px_0px_0px_rgba(197,192,255,0.3)]" href="#">
+<span class="material-symbols-outlined text-3xl" data-icon="groups">groups</span>
+</a>
+<a class="w-14 h-14 rounded-full border-2 border-primary flex items-center justify-center text-primary hover:bg-primary hover:text-surface-container-lowest transition-all shadow-[4px_4px_0px_0px_rgba(255,176,202,0.3)]" href="#">
+<span class="material-symbols-outlined text-3xl" data-icon="camera">camera</span>
+</a>
+<a class="w-14 h-14 rounded-full border-2 border-primary flex items-center justify-center text-primary hover:bg-primary hover:text-surface-container-lowest transition-all shadow-[4px_4px_0px_0px_rgba(255,176,202,0.3)]" href="#">
+<span class="material-symbols-outlined text-3xl" data-icon="play_circle">play_circle</span>
+</a>
+<a class="w-14 h-14 rounded-full border-2 border-secondary-container flex items-center justify-center text-secondary-container hover:bg-secondary-container hover:text-on-surface transition-all shadow-[4px_4px_0px_0px_rgba(61,6,242,0.3)]" href="#">
+<span class="material-symbols-outlined text-3xl" data-icon="mail">mail</span>
+</a>
+</div>
+<!-- Resume Pill -->
+<a class="inline-flex items-center gap-4 px-10 py-4 rounded-full border-[1.5px] border-[#ff1493] text-[#ff1493] font-mono text-sm font-bold uppercase tracking-widest hover:bg-[#ff1493] hover:text-white transition-all hover:scale-105 active:scale-95 group relative z-20" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+                [📄 DOWNLOAD RESUME]
+                <span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity" data-icon="download">download</span>
+</a>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full px-8 py-12 bg-[#12121f] bg-dot-pattern-halftone border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex flex-col items-center md:items-start gap-2">
+<div class="text-sm font-bold text-slate-500 font-mono uppercase tracking-tighter">RAJIV // MULTIVERSAL ENGINEER</div>
+<div class="font-mono text-xs uppercase tracking-widest text-slate-400">
+                Built with obsession. Designed in the Spider-Verse.
+            </div>
+</div>
+<div class="flex flex-col items-center md:items-end gap-4">
+<div class="flex gap-6 font-mono text-xs uppercase tracking-widest font-jetbrains-mono">
+<a class="text-slate-500 hover:text-white transition-colors" href="#">Source</a>
+<a class="text-slate-500 hover:text-white transition-colors" href="#">Status</a>
+<a class="text-slate-500 hover:text-white transition-colors" href="#">Archive</a>
+</div>
+<div class="font-mono text-[10px] text-slate-600 uppercase">
+                © 2024 RAJIV // MULTIVERSAL ENGINEER
+            </div>
+</div>
+</footer>
+</body></html>
