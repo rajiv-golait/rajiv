@@ -11,7 +11,7 @@ export default async function GalleryPage() {
   ])
 
   return (
-    <main className="min-h-screen bg-[#08070d] text-on-background">
+    <main className="min-h-screen bg-[#0a0808] text-on-background">
       <Nav />
       <Gallery items={items} settings={settings} />
       <Footer />

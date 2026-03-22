@@ -27,9 +27,6 @@ export default function Nav() {
           <Link className={navClass(onHome)} href="/#experience">
             Experience
           </Link>
-          <Link className={navClass(onHome)} href="/#certifications">
-            Certifications
-          </Link>
           <Link className={navClass(onGallery)} href="/gallery">
             Gallery
           </Link>

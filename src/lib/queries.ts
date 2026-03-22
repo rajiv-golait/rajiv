@@ -11,8 +11,20 @@ export const projectBySlugQuery = groq`*[_type == "project" && slug.current == $
 
 export const publishedGalleryQuery = groq`*[_type == "galleryItem" && isVisible == true] | order(order asc) {
   ...,
+  videoFile {
+    asset->{
+      url
+    }
+  }
 }`
-export const galleryItemBySlugQuery = groq`*[_type == "galleryItem" && slug.current == $slug][0]`
+export const galleryItemBySlugQuery = groq`*[_type == "galleryItem" && slug.current == $slug][0] {
+  ...,
+  videoFile {
+    asset->{
+      url
+    }
+  }
+}`
 
 export const certificationsQuery = groq`*[_type == "certification" && isVisible == true] | order(order asc) {
   ...,
